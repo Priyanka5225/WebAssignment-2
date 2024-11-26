@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 4px;
+        }
+        li {
+            background-color: rgb(230, 173, 209);
+            margin: 4px;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        li:hover {
+            background-color: rgba(240, 128, 128, 0.24);
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <script>
+        // to add the "Fourth item" when the page loads
+        window.onload = function() {
+            var newListItem = document.createElement('li');
+            newListItem.textContent = 'Fourth item';
+            var myList = document.getElementById('myList');
+            myList.appendChild(newListItem);
+
+            // Adding click event 
+            var listItems = myList.getElementsByTagName('li');
+            for (var i = 0; i < listItems.length; i++) {
+                listItems[i].onclick = function() {
+                    this.textContent = generateRandomString();
+                };
+            }
+        };
+        // Function for random alphanumeric string
+        function generateRandomString() {
+            var characters = 'PRIYANKASUMANPALAK123456789#!@$%';
+            var randomString = '';
+            for (var i = 0; i < 10; i++) {
+                var randomIndex = Math.floor(Math.random() * characters.length);
+                randomString += characters.charAt(randomIndex);
+            }
+            return randomString;
+        }
+    </script>
+</body>
+</html>

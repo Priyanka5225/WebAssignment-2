@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavascriptBasics</title>
+</head>
+<body>
+    <h1>Javascript Basics</h1>
+    <script>
+        
+        function calculateArea(width, height) {
+    // to check whether both are positive numbers
+    while (width <= 0 || height <= 0 || isNaN(width) || isNaN(height)) {
+        console.log("Invalid! Please enter positive numbers.");
+        
+        // to prompt to input again.
+        width = parseFloat(prompt("Enter the width of the rectangle:"));
+        height = parseFloat(prompt("Enter the height of the rectangle:"));
+    }
+
+    // Calculate and display area
+    let area = width * height;
+    console.log("The area of the rectangle is: " + area);
+}
+calculateArea();
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            padding: 20px 20px;
+            font-size: 25px;
+            border: solid;
+            transition: background-color 0.5s ease; 
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Event Handling
+    </h1>
+    <script>
+        // Function to generate a random color
+        function RandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Button element 
+        function showAlert() {
+            alert("Button clicked!");
+
+            // Change button color to a random color
+            const button = document.querySelector('button');
+            button.style.backgroundColor = RandomColor();
+        }
+    </script>
+
+    <button onclick="showAlert()">Click Me!</button>
+</body>
+</html>

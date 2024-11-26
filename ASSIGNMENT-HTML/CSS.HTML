@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Example</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        
+        #box {
+            width: 300px;       
+            height: 300px;      
+            padding: 50px;      
+            border: 5px solid black; 
+            margin: 20px;       
+            background-color: lightcoral; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease; 
+            
+        }
+
+        #box:hover {
+            border-color: rgb(102, 128, 0);  
+        }
+        .boxControl {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 10px;
+            margin-right: 15px;
+            cursor: pointer;
+            background-color: #af4c4c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a0458b;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Box Model</h1>
+    <div id="box"> </div>
+
+    <div class="boxControl">
+        <button onclick="changeBackgroundColor()">Change Background Color</button>
+        <button onclick="changePadding()">Increase Padding</button>
+        <button onclick="changeBorder()">Change Border Color</button>
+        <button onclick="resetBox()">Reset Box</button>
+    </div>
+
+    <script>
+        
+        var box = document.getElementById('box');
+    
+        function changeBackgroundColor() {
+            var colors = ['lightred', 'lightblue', 'lightgreen', 'lightyellow', 'lightpink'];
+            var currentColor = box.style.backgroundColor;
+            
+            var newColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.backgroundColor = newColor;
+        }
+
+        function changePadding() {
+            var currentPadding = parseInt(window.getComputedStyle(box).padding);
+            var newPadding = currentPadding + 5; 
+            box.style.padding = newPadding + 'px';
+        }
+
+        function changeBorder() {
+            var randomColor = getRandomColor();
+            box.style.borderColor = randomColor;
+        }
+
+        function resetBox() {
+            box.style.backgroundColor = 'lightCORAL';
+            box.style.padding = '30px';
+            box.style.borderColor = 'black';
+            box.style.margin = '30px';
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789PRIYANKA';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
